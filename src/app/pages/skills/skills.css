@@ -1,0 +1,54 @@
+.chips mat-chip-set mat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.chips mat-chip-set mat-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.skill-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-angular {
+  color: #dd0031;
+}
+
+.icon-material {
+  color: #3f51b5;
+}
+
+.icon-ts {
+  color: #3178c6;
+}
+
+.icon-rx {
+  color: #b7178c;
+}
+
+.icon-html {
+  color: #e34f26;
+}
+
+.icon-scss {
+  color: #cf649a;
+}
+
+.icon-responsive {
+  color: #10b981;
+}
+
+.icon-testing {
+  color: #8b5cf6;
+}
+
+.icon-a11y {
+  color: #f59e0b;
+}
+

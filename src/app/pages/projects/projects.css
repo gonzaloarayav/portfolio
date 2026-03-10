@@ -1,0 +1,61 @@
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.project-card {
+  padding: 1rem;
+  border: 1px solid rgba(56, 132, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 132, 255, 0.6);
+  background: rgba(56, 132, 255, 0.06);
+}
+
+.project-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.project-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  background: rgba(56, 132, 255, 0.14);
+  display: grid;
+  place-items: center;
+}
+
+.project-icon .mat-icon {
+  font-size: 28px;
+}
+
+.icon-dashboard {
+  color: rgba(56, 132, 255, 0.95);
+}
+
+.icon-insights {
+  color: rgba(245, 158, 11, 0.95);
+}
+
+.muted {
+  color: var(--mat-sys-on-surface-variant);
+  margin: 0;
+}
+
