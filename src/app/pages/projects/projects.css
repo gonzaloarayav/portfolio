@@ -1,6 +1,6 @@
 .projects-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 900px) {
@@ -10,34 +10,35 @@
 }
 
 .project-card {
-  padding: 1rem;
-  border: 1px solid rgba(56, 132, 255, 0.25);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
-  text-align: center;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .project-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(56, 132, 255, 0.6);
-  background: rgba(56, 132, 255, 0.06);
+  border-color: color-mix(in srgb, var(--mat-sys-primary) 50%, var(--border-color));
+  background: color-mix(in srgb, var(--mat-sys-primary) 6%, var(--mat-sys-surface-container-high));
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
 }
 
 .project-head {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  align-items: center;
-  margin-bottom: 0.5rem;
+  align-items: flex-start;
 }
 
 .project-icon {
   width: 56px;
   height: 56px;
-  margin: 0 auto 0.5rem;
   border-radius: 50%;
-  background: rgba(56, 132, 255, 0.14);
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
   display: grid;
   place-items: center;
 }
@@ -57,5 +58,12 @@
 .muted {
   color: var(--mat-sys-on-surface-variant);
   margin: 0;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
 }
 

@@ -3,49 +3,88 @@
     <mat-icon class="icon-section icon-skills">psychology</mat-icon>
     <div>
       <h2 class="section-title">Aptitudes</h2>
-      <p class="section-subtitle">Principales tecnologías y habilidades</p>
+      <p class="section-subtitle">Stack, herramientas y metodologías</p>
     </div>
   </div>
   <div class="accent-bar"></div>
-  
-  <div class="chips reveal-up reveal-stagger">
-    <mat-chip-set aria-label="Habilidades principales">
-      <mat-chip selected color="primary">
-        <mat-icon class="skill-icon icon-angular">code</mat-icon>
-        Angular
-      </mat-chip>
-      <mat-chip selected color="primary">
-        <mat-icon class="skill-icon icon-material">view_module</mat-icon>
-        Angular Material
-      </mat-chip>
-      <mat-chip selected color="primary">
-        <mat-icon class="skill-icon icon-ts">data_object</mat-icon>
-        TypeScript
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-rx">autorenew</mat-icon>
-        RxJS
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-html">language</mat-icon>
-        HTML
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-scss">palette</mat-icon>
-        SCSS
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-responsive">devices</mat-icon>
-        Responsive Design
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-testing">bug_report</mat-icon>
-        Testing
-      </mat-chip>
-      <mat-chip>
-        <mat-icon class="skill-icon icon-a11y">accessible</mat-icon>
-        Accesibilidad (a11y)
-      </mat-chip>
-    </mat-chip-set>
+
+  <div class="skills-groups reveal-up reveal-stagger">
+    <div class="skills-group skills-group--wide">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--frontend">
+          <mat-icon aria-hidden="true">web</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">Frontend</div>
+          <div class="skills-meta">Componentes, UI y arquitectura con Angular</div>
+        </div>
+      </div>
+      <div class="skills-tags" aria-label="Stack Frontend">
+        <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-angular" aria-hidden="true">code</mat-icon><span>Angular</span></div>
+        <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-ts" aria-hidden="true">data_object</mat-icon><span>TypeScript</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-rx" aria-hidden="true">autorenew</mat-icon><span>RxJS</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-html" aria-hidden="true">language</mat-icon><span>HTML</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-scss" aria-hidden="true">palette</mat-icon><span>CSS/SCSS</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-responsive" aria-hidden="true">devices</mat-icon><span>Responsive</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-a11y" aria-hidden="true">accessible</mat-icon><span>a11y</span></div>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--quality">
+          <mat-icon aria-hidden="true">verified</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">Calidad</div>
+          <div class="skills-meta">Testing, buenas prácticas y performance</div>
+        </div>
+      </div>
+      <div class="skills-tags" aria-label="Testing y calidad">
+        <div class="skill-pill"><mat-icon class="skill-icon icon-testing" aria-hidden="true">bug_report</mat-icon><span>Testing</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">rule</mat-icon><span>Linting</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">speed</mat-icon><span>Performance</span></div>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--tools">
+          <mat-icon aria-hidden="true">construction</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">Herramientas</div>
+          <div class="skills-meta">Workflow, control de versiones y deploy</div>
+        </div>
+      </div>
+      <div class="skills-tags" aria-label="Herramientas">
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">hub</mat-icon><span>Git</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">terminal</mat-icon><span>CLI</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">cloud</mat-icon><span>Deploy</span></div>
+      </div>
+    </div>
+
+    <div class="skills-group skills-group--wide">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--backend">
+          <mat-icon aria-hidden="true">dns</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">Backend</div>
+          <div class="skills-meta">APIs modernas, lógica de negocio y bases de datos</div>
+        </div>
+      </div>
+      <div class="skills-tags" aria-label="Stack Backend">
+        <div class="skill-pill"><mat-icon class="skill-icon icon-csharp" aria-hidden="true">code</mat-icon><span>C#</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-dotnet" aria-hidden="true">layers</mat-icon><span>.NET</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-node" aria-hidden="true">developer_mode</mat-icon><span>Node.js</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-nest" aria-hidden="true">account_tree</mat-icon><span>NestJS</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-sql" aria-hidden="true">database</mat-icon><span>SQL Server</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-postgres" aria-hidden="true">database</mat-icon><span>PostgreSQL</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-mongo" aria-hidden="true">storage</mat-icon><span>MongoDB</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-docker" aria-hidden="true">layers</mat-icon><span>Docker</span></div>
+        <div class="skill-pill"><mat-icon class="skill-icon icon-api" aria-hidden="true">api</mat-icon><span>REST APIs</span></div>
+      </div>
+    </div>
   </div>
 </div>

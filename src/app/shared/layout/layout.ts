@@ -1,11 +1,10 @@
-import { Component, signal, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, signal, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Home } from '../../pages/home/home';
 import { Skills } from '../../pages/skills/skills';
 import { Resume } from '../../pages/resume/resume';
@@ -22,7 +21,6 @@ import { Contact } from '../../pages/contact/contact';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatSlideToggleModule,
     Home,
     Skills,
     Resume,
@@ -33,18 +31,33 @@ import { Contact } from '../../pages/contact/contact';
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
-export class Layout implements AfterViewInit {
+export class Layout implements AfterViewInit, OnDestroy {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
   isDarkTheme = signal(true);
   currentSection = signal('inicio');
   showBackToTop = signal(false);
   private io?: IntersectionObserver;
+  private mo?: MutationObserver;
+  private observed = new WeakSet<Element>();
+  private readonly themeStorageKey = 'theme';
+  private readonly observeSelector = ['.section', '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-fade'].join(',');
+  private onScroll = () => {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.max(0, Math.min(100, (y / max) * 100)) : 0;
+    document.documentElement.style.setProperty('--scroll-progress', pct + '%');
+    this.showBackToTop.set(y > 600);
+  };
 
   constructor() {
-    // Tema oscuro por defecto
-    const root = document.documentElement;
-    root.classList.add('dark-theme');
-    root.classList.remove('light-theme');
+    const stored = this.safeGetTheme();
+    const prefersDark =
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const initialIsDark = stored ? stored === 'dark' : prefersDark;
+    this.applyTheme(initialIsDark);
   }
 
   ngAfterViewInit() {
@@ -65,32 +78,81 @@ export class Layout implements AfterViewInit {
         { threshold: 0.25 }
       );
 
-      const observeSelector = ['.section', '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-fade'].join(',');
-      document.querySelectorAll<HTMLElement>(observeSelector).forEach((el) => this.io?.observe(el));
+      this.observeAll();
+
+      if (typeof MutationObserver !== 'undefined') {
+        this.mo = new MutationObserver(() => this.observeAll());
+        if (document.body) {
+          this.mo.observe(document.body, { subtree: true, childList: true });
+        }
+      }
     }
 
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = max > 0 ? Math.max(0, Math.min(100, (y / max) * 100)) : 0;
-      document.documentElement.style.setProperty('--scroll-progress', pct + '%');
-      this.showBackToTop.set(y > 600);
-    });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
   }
 
-  toggleTheme(checked: boolean) {
-    this.isDarkTheme.set(checked);
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
+    this.mo?.disconnect();
+    this.io?.disconnect();
+  }
+
+  toggleTheme() {
+    this.applyTheme(!this.isDarkTheme());
+  }
+
+  currentYear() {
+    return new Date().getFullYear();
+  }
+
+  private applyTheme(isDark: boolean) {
+    this.isDarkTheme.set(isDark);
     const root = document.documentElement;
-    if (checked) {
+    if (isDark) {
       root.classList.add('dark-theme');
       root.classList.remove('light-theme');
     } else {
       root.classList.add('light-theme');
       root.classList.remove('dark-theme');
     }
+    this.safeSetTheme(isDark ? 'dark' : 'light');
+  }
+
+  private safeGetTheme() {
+    try {
+      const raw = localStorage.getItem(this.themeStorageKey);
+      return raw === 'dark' || raw === 'light' ? raw : null;
+    } catch {
+      return null;
+    }
+  }
+
+  private safeSetTheme(theme: 'dark' | 'light') {
+    try {
+      localStorage.setItem(this.themeStorageKey, theme);
+    } catch {
+    }
+  }
+
+  private observeAll() {
+    if (!this.io) return;
+    document.querySelectorAll<HTMLElement>(this.observeSelector).forEach((el) => {
+      if (this.observed.has(el)) return;
+      this.observed.add(el);
+      this.io?.observe(el);
+    });
   }
 
   scrollTo(id: string) {
+    if (id === 'inicio') {
+      this.backToTop();
+      this.currentSection.set(id);
+      if (this.sidenav?.opened) {
+        this.sidenav.close();
+      }
+      return;
+    }
     const el = document.getElementById(id);
     if (!el) return;
     const toolbar = document.querySelector('.app-toolbar') as HTMLElement | null;

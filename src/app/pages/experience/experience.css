@@ -1,1 +1,41 @@
+.experience-grid {
+  display: grid;
+  gap: 1rem;
+}
 
+.experience-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
+}
+
+.experience-body {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.experience-role {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.experience-meta {
+  color: var(--mat-sys-on-surface-variant);
+  font-size: 0.95rem;
+}
+
+.experience-points {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--mat-sys-on-surface);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.experience-points li {
+  color: var(--mat-sys-on-surface-variant);
+}

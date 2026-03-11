@@ -1,7 +1,10 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: linear-gradient(180deg, #0b0f14 0%, #0e1117 60%, #0b0f14 100%);
+  background:
+    radial-gradient(1100px 700px at 15% -10%, color-mix(in srgb, var(--mat-sys-primary) 16%, transparent), transparent 60%),
+    radial-gradient(900px 650px at 95% 0%, color-mix(in srgb, #8b5cf6 18%, transparent), transparent 55%),
+    var(--mat-sys-background, var(--mat-sys-surface));
 }
 
 .layout-container {
@@ -9,11 +12,35 @@
 }
 
 .app-toolbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  backdrop-filter: saturate(120%) blur(6px);
-  border-bottom: 1px solid rgba(56, 132, 255, 0.25);
+  padding: 0;
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--mat-sys-surface-container) 78%, transparent);
+}
+
+.toolbar-offset {
+  height: 64px;
+}
+
+@media (max-width: 600px) {
+  .toolbar-offset {
+    height: 56px;
+  }
+}
+
+.toolbar-inner {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
 }
 
 .scroll-progress {
@@ -38,29 +65,45 @@
 @media (min-width: 900px) {
   .nav-links {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.4rem;
   }
 }
 
 .content {
-  padding: 2rem 1rem 4rem;
-  max-width: 1100px;
+  padding: 1.25rem 1rem 3rem;
+  max-width: var(--page-max-width);
   margin: 0 auto;
 }
 
-.nav-links a {
-  border-bottom: 2px solid transparent;
+.menu-btn {
+  display: inline-flex;
 }
 
-.nav-links a.active {
-  border-bottom-color: rgba(56, 132, 255, 0.9);
+@media (min-width: 900px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+.nav-link {
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.nav-link.active {
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
 }
 
 .section {
-  margin: 3rem 0;
+  margin: 2.25rem 0;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 500ms ease, transform 600ms ease;
+  scroll-margin-top: 86px;
+}
+
+.content .section:first-child {
+  margin-top: 1rem;
 }
 
 .section.visible {
@@ -71,10 +114,29 @@
 .brand {
   font-weight: 600;
   letter-spacing: 0.3px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .app-sidenav {
-  background: #0b0f14;
+  background: var(--mat-sys-surface-container);
+  border-right: 1px solid var(--border-color);
+}
+
+.footer {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 1rem 2.5rem;
+  color: var(--mat-sys-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.footer-sep {
+  opacity: 0.6;
 }
 
 .back-to-top {

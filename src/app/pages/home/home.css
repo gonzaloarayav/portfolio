@@ -1,68 +1,61 @@
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem 0;
+  gap: 1.25rem;
 }
 
-.floating-icon {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.typing-wrapper {
+.hero-name {
+  color: var(--mat-sys-primary);
+  letter-spacing: -0.01em;
   display: inline-block;
+  position: relative;
 }
 
-.typing-container {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid var(--mat-sys-primary);
-  width: 0;
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-  animation-delay: 300ms;
+.hero-name.is-typing::after {
+  content: '';
+  position: absolute;
+  top: 0.08em;
+  right: -2px;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  animation: heroCaretBlink 900ms steps(1, end) infinite;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
+@keyframes heroCaretBlink {
+  0%,
+  49% {
+    opacity: 1;
   }
 
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  from,
-  to {
-    border-color: transparent;
-  }
-
-  50% {
-    border-color: var(--mat-sys-primary);
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 
-@media (max-width: 600px) {
-  .typing-container {
-    white-space: normal;
-    border-right: none;
-    width: auto;
-    animation: none;
-  }
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 60%, transparent);
+  color: var(--mat-sys-on-surface);
+  font-size: 0.92rem;
+}
+
+.highlight mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  color: var(--mat-sys-primary);
 }
 

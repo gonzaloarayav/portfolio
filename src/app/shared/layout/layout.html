@@ -30,23 +30,52 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="app-toolbar">
-      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Abrir menú">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="brand">Gonzalo Araya</span>
-      <span class="spacer"></span>
-      <nav class="nav-links">
-        <a mat-button (click)="scrollTo('inicio')" [class.active]="currentSection() === 'inicio'">Inicio</a>
-        <a mat-button (click)="scrollTo('aptitudes')" [class.active]="currentSection() === 'aptitudes'">Aptitudes</a>
-        <a mat-button (click)="scrollTo('curriculum')" [class.active]="currentSection() === 'curriculum'">Curriculum</a>
-        <a mat-button (click)="scrollTo('proyectos')" [class.active]="currentSection() === 'proyectos'">Proyectos</a>
-        <a mat-button (click)="scrollTo('experiencia')" [class.active]="currentSection() === 'experiencia'">Experiencia</a>
-        <a mat-button (click)="scrollTo('contacto')" [class.active]="currentSection() === 'contacto'">Contacto</a>
-      </nav>
-      <mat-slide-toggle class="theme-toggle" [checked]="isDarkTheme()" (change)="toggleTheme($event.checked)">
-        <mat-icon aria-hidden="true">dark_mode</mat-icon>
-      </mat-slide-toggle>
+      <div class="toolbar-inner">
+        <button mat-icon-button class="menu-btn" (click)="sidenav.toggle()" aria-label="Abrir menú">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span
+          class="brand"
+          (click)="scrollTo('inicio')"
+          (keydown.enter)="scrollTo('inicio')"
+          (keydown.space)="scrollTo('inicio')"
+          role="button"
+          tabindex="0"
+        >
+          ArayaDev
+        </span>
+        <span class="spacer"></span>
+        <nav class="nav-links" aria-label="Secciones">
+          <a mat-button class="nav-link" (click)="scrollTo('inicio')" [class.active]="currentSection() === 'inicio'">
+            Inicio
+          </a>
+          <a mat-button class="nav-link" (click)="scrollTo('aptitudes')" [class.active]="currentSection() === 'aptitudes'">
+            Aptitudes
+          </a>
+          <a mat-button class="nav-link" (click)="scrollTo('curriculum')" [class.active]="currentSection() === 'curriculum'">
+            Curriculum
+          </a>
+          <a mat-button class="nav-link" (click)="scrollTo('proyectos')" [class.active]="currentSection() === 'proyectos'">
+            Proyectos
+          </a>
+          <a mat-button class="nav-link" (click)="scrollTo('experiencia')" [class.active]="currentSection() === 'experiencia'">
+            Experiencia
+          </a>
+          <a mat-button class="nav-link" (click)="scrollTo('contacto')" [class.active]="currentSection() === 'contacto'">
+            Contacto
+          </a>
+        </nav>
+        <button
+          mat-icon-button
+          class="theme-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-label]="isDarkTheme() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
+        >
+          <mat-icon aria-hidden="true">{{ isDarkTheme() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+        </button>
+      </div>
     </mat-toolbar>
+    <div class="toolbar-offset" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <main class="content">
@@ -74,9 +103,14 @@
         <app-contact></app-contact>
       </section>
     </main>
+    <footer class="footer">
+      <span>© {{ currentYear() }} Gonzalo Araya</span>
+      <span class="footer-sep">·</span>
+      <span>Hecho con Angular</span>
+    </footer>
     <button mat-fab color="primary" class="back-to-top" (click)="backToTop()" [class.show]="showBackToTop()" aria-label="Volver arriba">
       <mat-icon>arrow_upward</mat-icon>
     </button>
   </mat-sidenav-content>
-  
+
 </mat-sidenav-container>

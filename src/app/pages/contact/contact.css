@@ -1,1 +1,29 @@
+.contact-card {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
+  display: grid;
+  gap: 0.9rem;
+}
 
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contact-icon {
+  color: var(--mat-sys-primary);
+}
+
+.contact-link {
+  color: var(--mat-sys-on-surface);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}

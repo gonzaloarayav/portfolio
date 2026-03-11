@@ -1,1 +1,49 @@
+.resume-columns {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
 
+@media (min-width: 900px) {
+  .resume-columns {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
+
+.resume-block {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
+  padding: 1rem;
+}
+
+.resume-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.resume-list {
+  padding: 0;
+}
+
+.resume-summary {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--mat-sys-primary) 6%, var(--mat-sys-surface-container-high));
+  padding: 1rem;
+}
+
+.summary-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.summary-text {
+  margin: 0;
+  color: var(--mat-sys-on-surface);
+}
