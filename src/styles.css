@@ -67,6 +67,10 @@ html.light-theme {
   --mat-sys-surface-tint: #2563eb;
 }
 
+html.full-width {
+  --page-max-width: 100%;
+}
+
 html.dark-theme body {
   background-color: #0e1117;
   color: var(--mat-sys-on-surface);

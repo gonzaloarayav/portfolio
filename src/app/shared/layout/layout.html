@@ -67,6 +67,15 @@
         </nav>
         <button
           mat-icon-button
+          class="layout-width-toggle"
+          (click)="toggleLayoutWidth()"
+          [class.active]="isFullWidth()"
+          [attr.aria-label]="isFullWidth() ? 'Usar ancho compacto' : 'Usar ancho completo'"
+        >
+          <mat-icon aria-hidden="true">{{ isFullWidth() ? 'close_fullscreen' : 'open_in_full' }}</mat-icon>
+        </button>
+        <button
+          mat-icon-button
           class="theme-toggle"
           (click)="toggleTheme()"
           [attr.aria-label]="isDarkTheme() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"

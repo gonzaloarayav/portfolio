@@ -1,14 +1,37 @@
 :host {
   display: block;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
   background:
-    radial-gradient(1100px 700px at 15% -10%, color-mix(in srgb, var(--mat-sys-primary) 16%, transparent), transparent 60%),
-    radial-gradient(900px 650px at 95% 0%, color-mix(in srgb, #8b5cf6 18%, transparent), transparent 55%),
+    radial-gradient(1100px 700px at 15% -10%, color-mix(in srgb, var(--mat-sys-primary) 14%, transparent), transparent 60%),
+    radial-gradient(900px 650px at 95% 0%, color-mix(in srgb, #8b5cf6 16%, transparent), transparent 55%),
     var(--mat-sys-background, var(--mat-sys-surface));
+}
+
+:host::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(900px 520px at 12% 18%, color-mix(in srgb, var(--mat-sys-primary) 20%, transparent), transparent 60%),
+    radial-gradient(820px 560px at 82% 16%, color-mix(in srgb, #8b5cf6 18%, transparent), transparent 64%),
+    radial-gradient(740px 520px at 68% 82%, color-mix(in srgb, #38bdf8 18%, transparent), transparent 62%),
+    radial-gradient(680px 520px at 24% 84%, color-mix(in srgb, #22c55e 16%, transparent), transparent 60%);
+  opacity: 0.75;
+  transform: translateZ(0);
+  filter: blur(80px) saturate(112%);
+  mix-blend-mode: screen;
 }
 
 .layout-container {
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .app-toolbar {
@@ -18,9 +41,75 @@
   right: 0;
   z-index: 1000;
   padding: 0;
+  overflow: hidden;
+  isolation: isolate;
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--border-color);
   background: color-mix(in srgb, var(--mat-sys-surface-container) 78%, transparent);
+}
+
+.app-toolbar::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(520px 220px at 12% 40%, color-mix(in srgb, #38bdf8 24%, transparent), transparent 60%),
+    radial-gradient(520px 260px at 76% 30%, color-mix(in srgb, #8b5cf6 22%, transparent), transparent 62%),
+    linear-gradient(120deg, transparent 0%, color-mix(in srgb, var(--mat-sys-primary) 10%, transparent) 35%, transparent 70%);
+  filter: blur(14px) saturate(115%);
+  opacity: 0.55;
+  transform: translate3d(0, 0, 0);
+  animation: navbarGlow 10s ease-in-out infinite alternate;
+}
+
+.app-toolbar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(420px 180px at 12% 54%, color-mix(in srgb, #38bdf8 22%, transparent), transparent 62%),
+    radial-gradient(460px 220px at 88% 46%, color-mix(in srgb, #8b5cf6 20%, transparent), transparent 64%),
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      color-mix(in srgb, var(--mat-sys-primary) 18%, transparent) 32%,
+      transparent 64%
+    );
+  background-size: 200% 100%, 220% 100%, 240% 100%;
+  background-position: 0% 0%, 100% 0%, 0% 0%;
+  opacity: 0.42;
+  filter: blur(8px) saturate(118%);
+  mix-blend-mode: screen;
+  animation: navbarSheen 8s ease-in-out infinite alternate;
+}
+
+.toolbar-inner {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes navbarGlow {
+  0% {
+    transform: translate3d(-18px, 0, 0) scale(1.02);
+  }
+
+  100% {
+    transform: translate3d(18px, -10px, 0) scale(1.06);
+  }
+}
+
+@keyframes navbarSheen {
+  0% {
+    background-position: 0% 0%, 100% 0%, 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 0%, 0% 0%, 100% 0%;
+  }
 }
 
 .toolbar-offset {
@@ -92,6 +181,11 @@
 
 .nav-link.active {
   background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+}
+
+.layout-width-toggle.active {
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+  border-radius: 999px;
 }
 
 .section {

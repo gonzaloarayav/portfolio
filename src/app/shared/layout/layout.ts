@@ -34,12 +34,14 @@ import { Contact } from '../../pages/contact/contact';
 export class Layout implements AfterViewInit, OnDestroy {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
   isDarkTheme = signal(true);
+  isFullWidth = signal(false);
   currentSection = signal('inicio');
   showBackToTop = signal(false);
   private io?: IntersectionObserver;
   private mo?: MutationObserver;
   private observed = new WeakSet<Element>();
   private readonly themeStorageKey = 'theme';
+  private readonly layoutWidthStorageKey = 'layoutWidth';
   private readonly observeSelector = ['.section', '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-fade'].join(',');
   private onScroll = () => {
     const y = window.scrollY;
@@ -58,6 +60,9 @@ export class Layout implements AfterViewInit, OnDestroy {
 
     const initialIsDark = stored ? stored === 'dark' : prefersDark;
     this.applyTheme(initialIsDark);
+
+    const storedLayoutWidth = this.safeGetLayoutWidth();
+    this.applyLayoutWidth(storedLayoutWidth === 'full');
   }
 
   ngAfterViewInit() {
@@ -102,6 +107,10 @@ export class Layout implements AfterViewInit, OnDestroy {
     this.applyTheme(!this.isDarkTheme());
   }
 
+  toggleLayoutWidth() {
+    this.applyLayoutWidth(!this.isFullWidth());
+  }
+
   currentYear() {
     return new Date().getFullYear();
   }
@@ -131,6 +140,33 @@ export class Layout implements AfterViewInit, OnDestroy {
   private safeSetTheme(theme: 'dark' | 'light') {
     try {
       localStorage.setItem(this.themeStorageKey, theme);
+    } catch {
+    }
+  }
+
+  private applyLayoutWidth(isFullWidth: boolean) {
+    this.isFullWidth.set(isFullWidth);
+    const root = document.documentElement;
+    if (isFullWidth) {
+      root.classList.add('full-width');
+    } else {
+      root.classList.remove('full-width');
+    }
+    this.safeSetLayoutWidth(isFullWidth ? 'full' : 'compact');
+  }
+
+  private safeGetLayoutWidth() {
+    try {
+      const raw = localStorage.getItem(this.layoutWidthStorageKey);
+      return raw === 'full' || raw === 'compact' ? raw : null;
+    } catch {
+      return null;
+    }
+  }
+
+  private safeSetLayoutWidth(value: 'full' | 'compact') {
+    try {
+      localStorage.setItem(this.layoutWidthStorageKey, value);
     } catch {
     }
   }
