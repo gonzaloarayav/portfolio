@@ -5,6 +5,18 @@ html {
   color-scheme: light dark;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 :root {
   --page-max-width: 1120px;
   --radius-lg: 18px;

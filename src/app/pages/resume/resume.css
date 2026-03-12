@@ -16,6 +16,7 @@
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
   padding: 1rem;
+  min-width: 0;
 }
 
 .resume-title {
@@ -27,6 +28,16 @@
 
 .resume-list {
   padding: 0;
+}
+
+.resume-list .mdc-list-item__content {
+  min-width: 0;
+}
+
+.resume-list .mdc-list-item__primary-text,
+.resume-list .mdc-list-item__secondary-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .resume-summary {

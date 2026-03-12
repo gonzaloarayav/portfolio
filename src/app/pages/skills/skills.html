@@ -2,8 +2,8 @@
   <div class="section-header reveal-left">
     <mat-icon class="icon-section icon-skills">psychology</mat-icon>
     <div>
-      <h2 class="section-title">Aptitudes</h2>
-      <p class="section-subtitle">Stack, herramientas y metodologías</p>
+      <h2 class="section-title">{{ 'skills.title' | t }}</h2>
+      <p class="section-subtitle">{{ 'skills.subtitle' | t }}</p>
     </div>
   </div>
   <div class="accent-bar"></div>
@@ -15,11 +15,11 @@
           <mat-icon aria-hidden="true">web</mat-icon>
         </div>
         <div class="skills-group-title">
-          <div class="skills-title">Frontend</div>
-          <div class="skills-meta">Componentes, UI y arquitectura con Angular</div>
+          <div class="skills-title">{{ 'skills.group.frontend.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.frontend.meta' | t }}</div>
         </div>
       </div>
-      <div class="skills-tags" aria-label="Stack Frontend">
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.frontend' | t">
         <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-angular" aria-hidden="true">code</mat-icon><span>Angular</span></div>
         <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-ts" aria-hidden="true">data_object</mat-icon><span>TypeScript</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon icon-rx" aria-hidden="true">autorenew</mat-icon><span>RxJS</span></div>
@@ -36,11 +36,11 @@
           <mat-icon aria-hidden="true">verified</mat-icon>
         </div>
         <div class="skills-group-title">
-          <div class="skills-title">Calidad</div>
-          <div class="skills-meta">Testing, buenas prácticas y performance</div>
+          <div class="skills-title">{{ 'skills.group.quality.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.quality.meta' | t }}</div>
         </div>
       </div>
-      <div class="skills-tags" aria-label="Testing y calidad">
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.quality' | t">
         <div class="skill-pill"><mat-icon class="skill-icon icon-testing" aria-hidden="true">bug_report</mat-icon><span>Testing</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">rule</mat-icon><span>Linting</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">speed</mat-icon><span>Performance</span></div>
@@ -53,11 +53,11 @@
           <mat-icon aria-hidden="true">construction</mat-icon>
         </div>
         <div class="skills-group-title">
-          <div class="skills-title">Herramientas</div>
-          <div class="skills-meta">Workflow, control de versiones y deploy</div>
+          <div class="skills-title">{{ 'skills.group.tools.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.tools.meta' | t }}</div>
         </div>
       </div>
-      <div class="skills-tags" aria-label="Herramientas">
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.tools' | t">
         <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">hub</mat-icon><span>Git</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">terminal</mat-icon><span>CLI</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">cloud</mat-icon><span>Deploy</span></div>
@@ -70,11 +70,11 @@
           <mat-icon aria-hidden="true">dns</mat-icon>
         </div>
         <div class="skills-group-title">
-          <div class="skills-title">Backend</div>
-          <div class="skills-meta">APIs modernas, lógica de negocio y bases de datos</div>
+          <div class="skills-title">{{ 'skills.group.backend.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.backend.meta' | t }}</div>
         </div>
       </div>
-      <div class="skills-tags" aria-label="Stack Backend">
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.backend' | t">
         <div class="skill-pill"><mat-icon class="skill-icon icon-csharp" aria-hidden="true">code</mat-icon><span>C#</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon icon-dotnet" aria-hidden="true">layers</mat-icon><span>.NET</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon icon-node" aria-hidden="true">developer_mode</mat-icon><span>Node.js</span></div>

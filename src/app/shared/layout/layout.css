@@ -120,6 +120,14 @@
   .toolbar-offset {
     height: 56px;
   }
+
+  .content {
+    padding: 1rem 1rem 2.25rem;
+  }
+
+  .section {
+    margin: 1.5rem 0;
+  }
 }
 
 .toolbar-inner {
@@ -183,6 +191,26 @@
   background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  line-height: 1;
+  background: color-mix(in srgb, var(--mat-sys-primary) 10%, transparent);
+}
+
+.lang-toggle mat-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.lang-toggle:hover {
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+}
+
 .layout-width-toggle.active {
   background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
   border-radius: 999px;
@@ -190,19 +218,11 @@
 
 .section {
   margin: 2.25rem 0;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 500ms ease, transform 600ms ease;
   scroll-margin-top: 86px;
 }
 
 .content .section:first-child {
   margin-top: 1rem;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .brand {

@@ -3,27 +3,27 @@
     <mat-nav-list>
       <a mat-list-item (click)="scrollTo('inicio')" [class.active]="currentSection() === 'inicio'">
         <mat-icon>home</mat-icon>
-        <span>Inicio</span>
+        <span>{{ 'nav.home' | t }}</span>
       </a>
       <a mat-list-item (click)="scrollTo('aptitudes')" [class.active]="currentSection() === 'aptitudes'">
         <mat-icon>psychology</mat-icon>
-        <span>Aptitudes</span>
+        <span>{{ 'nav.skills' | t }}</span>
       </a>
       <a mat-list-item (click)="scrollTo('curriculum')" [class.active]="currentSection() === 'curriculum'">
         <mat-icon>description</mat-icon>
-        <span>Curriculum</span>
+        <span>{{ 'nav.resume' | t }}</span>
       </a>
       <a mat-list-item (click)="scrollTo('proyectos')" [class.active]="currentSection() === 'proyectos'">
         <mat-icon>work</mat-icon>
-        <span>Proyectos</span>
+        <span>{{ 'nav.projects' | t }}</span>
       </a>
       <a mat-list-item (click)="scrollTo('experiencia')" [class.active]="currentSection() === 'experiencia'">
         <mat-icon>badge</mat-icon>
-        <span>Experiencia</span>
+        <span>{{ 'nav.experience' | t }}</span>
       </a>
       <a mat-list-item (click)="scrollTo('contacto')" [class.active]="currentSection() === 'contacto'">
         <mat-icon>mail</mat-icon>
-        <span>Contacto</span>
+        <span>{{ 'nav.contact' | t }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -31,7 +31,7 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="app-toolbar">
       <div class="toolbar-inner">
-        <button mat-icon-button class="menu-btn" (click)="sidenav.toggle()" aria-label="Abrir menú">
+        <button mat-icon-button class="menu-btn" (click)="sidenav.toggle()" [attr.aria-label]="'toolbar.openMenu' | t">
           <mat-icon>menu</mat-icon>
         </button>
         <span
@@ -45,24 +45,24 @@
           ArayaDev
         </span>
         <span class="spacer"></span>
-        <nav class="nav-links" aria-label="Secciones">
+        <nav class="nav-links" [attr.aria-label]="'nav.sections' | t">
           <a mat-button class="nav-link" (click)="scrollTo('inicio')" [class.active]="currentSection() === 'inicio'">
-            Inicio
+            {{ 'nav.home' | t }}
           </a>
           <a mat-button class="nav-link" (click)="scrollTo('aptitudes')" [class.active]="currentSection() === 'aptitudes'">
-            Aptitudes
+            {{ 'nav.skills' | t }}
           </a>
           <a mat-button class="nav-link" (click)="scrollTo('curriculum')" [class.active]="currentSection() === 'curriculum'">
-            Curriculum
+            {{ 'nav.resume' | t }}
           </a>
           <a mat-button class="nav-link" (click)="scrollTo('proyectos')" [class.active]="currentSection() === 'proyectos'">
-            Proyectos
+            {{ 'nav.projects' | t }}
           </a>
           <a mat-button class="nav-link" (click)="scrollTo('experiencia')" [class.active]="currentSection() === 'experiencia'">
-            Experiencia
+            {{ 'nav.experience' | t }}
           </a>
           <a mat-button class="nav-link" (click)="scrollTo('contacto')" [class.active]="currentSection() === 'contacto'">
-            Contacto
+            {{ 'nav.contact' | t }}
           </a>
         </nav>
         <button
@@ -70,7 +70,7 @@
           class="layout-width-toggle"
           (click)="toggleLayoutWidth()"
           [class.active]="isFullWidth()"
-          [attr.aria-label]="isFullWidth() ? 'Usar ancho compacto' : 'Usar ancho completo'"
+          [attr.aria-label]="(isFullWidth() ? 'toolbar.layout.compact' : 'toolbar.layout.full') | t"
         >
           <mat-icon aria-hidden="true">{{ isFullWidth() ? 'close_fullscreen' : 'open_in_full' }}</mat-icon>
         </button>
@@ -78,9 +78,18 @@
           mat-icon-button
           class="theme-toggle"
           (click)="toggleTheme()"
-          [attr.aria-label]="isDarkTheme() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
+          [attr.aria-label]="(isDarkTheme() ? 'toolbar.theme.light' : 'toolbar.theme.dark') | t"
         >
           <mat-icon aria-hidden="true">{{ isDarkTheme() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+        </button>
+        <button
+          mat-button
+          class="lang-toggle"
+          (click)="toggleLang()"
+          [attr.aria-label]="(lang() === 'es' ? 'toolbar.lang.toEn' : 'toolbar.lang.toEs') | t"
+        >
+          <mat-icon aria-hidden="true">translate</mat-icon>
+          {{ lang() === 'es' ? 'EN' : 'ES' }}
         </button>
       </div>
     </mat-toolbar>
@@ -115,9 +124,16 @@
     <footer class="footer">
       <span>© {{ currentYear() }} Gonzalo Araya</span>
       <span class="footer-sep">·</span>
-      <span>Hecho con Angular</span>
+      <span>{{ 'footer.madeWith' | t }}</span>
     </footer>
-    <button mat-fab color="primary" class="back-to-top" (click)="backToTop()" [class.show]="showBackToTop()" aria-label="Volver arriba">
+    <button
+      mat-fab
+      color="primary"
+      class="back-to-top"
+      (click)="backToTop()"
+      [class.show]="showBackToTop()"
+      [attr.aria-label]="'toolbar.backToTop' | t"
+    >
       <mat-icon>arrow_upward</mat-icon>
     </button>
   </mat-sidenav-content>

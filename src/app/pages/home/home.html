@@ -3,28 +3,31 @@
     <mat-icon class="icon-section icon-home">person</mat-icon>
     <div>
       <h2 class="section-title">
-        Hola, soy <span #heroName class="hero-name">Gonzalo Araya</span>
+        {{ 'home.titlePrefix' | t }} <span #heroName class="hero-name">Gonzalo Araya</span>
       </h2>
-      <p class="section-subtitle">Desarrollador Fullstack · Angular · TypeScript · NodeJS · SQL Server</p>
+      <p class="section-subtitle">{{ 'home.subtitle' | t }}</p>
     </div>
   </div>
   <div class="accent-bar"></div>
   <p class="lead reveal-up">
-    Construyo interfaces modernas, accesibles y rápidas. Me enfoco en diseño de componentes, buenas prácticas y calidad.
+    {{ 'home.lead' | t }}
   </p>
   <div class="hero-highlights reveal-up">
     <div class="highlight">
       <mat-icon aria-hidden="true">bolt</mat-icon>
-      <span>Rendimiento y UX</span>
+      <span>{{ 'home.highlight.performance' | t }}</span>
     </div>
     <div class="highlight">
       <mat-icon aria-hidden="true">verified</mat-icon>
-      <span>Buenas prácticas</span>
+      <span>{{ 'home.highlight.bestPractices' | t }}</span>
     </div>
     <div class="highlight">
       <mat-icon aria-hidden="true">accessibility_new</mat-icon>
-      <span>Accesibilidad</span>
+      <span>{{ 'home.highlight.accessibility' | t }}</span>
     </div>
   </div>
 
+  <div class="scroll-hint reveal-fade" aria-hidden="true">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
 </div>

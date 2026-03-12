@@ -2,12 +2,12 @@
   <div class="section-header reveal-left">
     <mat-icon class="icon-section icon-contact">mail</mat-icon>
     <div>
-      <h2 class="section-title">Contacto</h2>
-      <p class="section-subtitle">Links y canales</p>
+      <h2 class="section-title">{{ 'contact.title' | t }}</h2>
+      <p class="section-subtitle">{{ 'contact.subtitle' | t }}</p>
     </div>
   </div>
   <div class="accent-bar"></div>
-  <p class="lead reveal-up">Disponible para colaboraciones, oportunidades y proyectos freelance.</p>
+  <p class="lead reveal-up">{{ 'contact.lead' | t }}</p>
 
   <div class="contact-card reveal-up">
     <div class="contact-row">
@@ -25,11 +25,11 @@
     <div class="cta-group">
       <a mat-flat-button color="primary" href="mailto:arayagonzalodev@gmail.com">
         <mat-icon class="icon-cta">mail</mat-icon>
-        Enviar email
+        {{ 'contact.cta.sendEmail' | t }}
       </a>
       <a mat-stroked-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
         <mat-icon class="icon-cta">download</mat-icon>
-        Descargar CV
+        {{ 'contact.cta.downloadResume' | t }}
       </a>
     </div>
   </div>

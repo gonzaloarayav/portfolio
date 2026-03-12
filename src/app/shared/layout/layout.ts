@@ -11,6 +11,8 @@ import { Resume } from '../../pages/resume/resume';
 import { Projects } from '../../pages/projects/projects';
 import { Experience } from '../../pages/experience/experience';
 import { Contact } from '../../pages/contact/contact';
+import { I18nService } from '../i18n/i18n.service';
+import { TranslatePipe } from '../i18n/translate.pipe';
 
 @Component({
   selector: 'app-layout',
@@ -21,6 +23,7 @@ import { Contact } from '../../pages/contact/contact';
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    TranslatePipe,
     Home,
     Skills,
     Resume,
@@ -37,6 +40,7 @@ export class Layout implements AfterViewInit, OnDestroy {
   isFullWidth = signal(false);
   currentSection = signal('inicio');
   showBackToTop = signal(false);
+  lang: I18nService['lang'];
   private io?: IntersectionObserver;
   private mo?: MutationObserver;
   private observed = new WeakSet<Element>();
@@ -51,7 +55,8 @@ export class Layout implements AfterViewInit, OnDestroy {
     this.showBackToTop.set(y > 600);
   };
 
-  constructor() {
+  constructor(private i18n: I18nService) {
+    this.lang = this.i18n.lang;
     const stored = this.safeGetTheme();
     const prefersDark =
       typeof window !== 'undefined' &&
@@ -80,7 +85,7 @@ export class Layout implements AfterViewInit, OnDestroy {
             }
           });
         },
-        { threshold: 0.25 }
+        { threshold: 0.12, rootMargin: '0px 0px 20% 0px' }
       );
 
       this.observeAll();
@@ -203,6 +208,10 @@ export class Layout implements AfterViewInit, OnDestroy {
 
   backToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  toggleLang() {
+    this.i18n.toggleLang();
   }
 
 }

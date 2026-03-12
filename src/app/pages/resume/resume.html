@@ -2,52 +2,45 @@
   <div class="section-header reveal-left">
     <mat-icon class="icon-section icon-resume">description</mat-icon>
     <div>
-      <h2 class="section-title">Curriculum</h2>
-      <p class="section-subtitle">Resumen profesional</p>
+      <h2 class="section-title">{{ 'resume.title' | t }}</h2>
+      <p class="section-subtitle">{{ 'resume.subtitle' | t }}</p>
     </div>
   </div>
   <div class="accent-bar"></div>
 
   <div class="resume-summary reveal-up">
-    <div class="summary-title">Perfil</div>
-    <p class="summary-text">
-      Soy un entusiasta de la tecnología y la programación con una pasión
-      desbordante por enfrentar desafíos y hacer mi aporte en
-      proyectos. No solo disfruto del proceso de desarrollo, sino que
-      también me encanta la parte de gestión. Siempre estoy ansioso
-      por seguir aprendiendo y me considero alguien que se integra
-      fácilmente en cualquier equipo de trabajo
-    </p>
+    <div class="summary-title">{{ 'resume.profileTitle' | t }}</div>
+    <p class="summary-text">{{ 'resume.profileText' | t }}</p>
   </div>
 
   <div class="resume-columns reveal-up">
     <div class="resume-block">
-      <h3 class="resume-title">Educación</h3>
+      <h3 class="resume-title">{{ 'resume.section.education' | t }}</h3>
       <mat-list class="resume-list">
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon icon-edu">school</mat-icon>
-          <span matListItemTitle>Ingeniería en Informática</span>
-          <span matListItemLine>Institución (confidencial) — 2017–2021</span>
+          <span matListItemTitle>{{ 'resume.education.degreeTitle' | t }}</span>
+          <span matListItemLine>{{ 'resume.education.degreeLine' | t }}</span>
         </mat-list-item>
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon icon-edu">school</mat-icon>
-          <span matListItemTitle>Curso / Bootcamp</span>
-          <span matListItemLine>Institución (confidencial) — 2022</span>
+          <span matListItemTitle>{{ 'resume.education.bootcampTitle' | t }}</span>
+          <span matListItemLine>{{ 'resume.education.bootcampLine' | t }}</span>
         </mat-list-item>
       </mat-list>
     </div>
 
     <div class="resume-block">
-      <h3 class="resume-title">Certificaciones</h3>
+      <h3 class="resume-title">{{ 'resume.section.certifications' | t }}</h3>
       <mat-list class="resume-list">
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon icon-cert">workspace_premium</mat-icon>
-          <span matListItemTitle>Angular Avanzado</span>
+          <span matListItemTitle>{{ 'resume.cert.angularAdvanced' | t }}</span>
           <span matListItemLine>2023</span>
         </mat-list-item>
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon icon-cert">workspace_premium</mat-icon>
-          <span matListItemTitle>Testing Frontend</span>
+          <span matListItemTitle>{{ 'resume.cert.testingFrontend' | t }}</span>
           <span matListItemLine>2024</span>
         </mat-list-item>
       </mat-list>
@@ -56,33 +49,33 @@
 
   <div class="resume-columns reveal-up">
     <div class="resume-block">
-      <h3 class="resume-title">Idiomas</h3>
+      <h3 class="resume-title">{{ 'resume.section.languages' | t }}</h3>
       <mat-list class="resume-list">
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon">language</mat-icon>
-          <span matListItemTitle>Español</span>
-          <span matListItemLine>Nativo</span>
+          <span matListItemTitle>{{ 'resume.lang.spanish' | t }}</span>
+          <span matListItemLine>{{ 'resume.lang.spanish.level' | t }}</span>
         </mat-list-item>
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon">language</mat-icon>
-          <span matListItemTitle>Inglés</span>
-          <span matListItemLine>Intermedio</span>
+          <span matListItemTitle>{{ 'resume.lang.english' | t }}</span>
+          <span matListItemLine>{{ 'resume.lang.english.level' | t }}</span>
         </mat-list-item>
       </mat-list>
     </div>
 
     <div class="resume-block">
-      <h3 class="resume-title">Enlaces</h3>
+      <h3 class="resume-title">{{ 'resume.section.links' | t }}</h3>
       <mat-list class="resume-list">
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon">link</mat-icon>
-          <span matListItemTitle>LinkedIn</span>
-          <span matListItemLine>Disponible en sección Contacto</span>
+          <span matListItemTitle>{{ 'resume.links.linkedin' | t }}</span>
+          <span matListItemLine>{{ 'resume.links.availableInContact' | t }}</span>
         </mat-list-item>
         <mat-list-item>
           <mat-icon matListItemIcon class="list-icon">code</mat-icon>
-          <span matListItemTitle>GitHub</span>
-          <span matListItemLine>Disponible en sección Contacto</span>
+          <span matListItemTitle>{{ 'resume.links.github' | t }}</span>
+          <span matListItemLine>{{ 'resume.links.availableInContact' | t }}</span>
         </mat-list-item>
       </mat-list>
     </div>

@@ -59,3 +59,42 @@
   color: var(--mat-sys-primary);
 }
 
+.scroll-hint {
+  display: none;
+  margin-top: 0.25rem;
+  align-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 85%, transparent);
+  background: color-mix(in srgb, var(--mat-sys-surface-container-high) 55%, transparent);
+  color: var(--mat-sys-on-surface-variant);
+  place-items: center;
+  animation: scrollHintFloat 1.35s ease-in-out infinite;
+}
+
+.scroll-hint mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+
+@keyframes scrollHintFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll-hint {
+    display: grid;
+  }
+}
+
