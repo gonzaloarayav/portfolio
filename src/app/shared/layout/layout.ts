@@ -13,6 +13,7 @@ import { Experience } from '../../pages/experience/experience';
 import { Contact } from '../../pages/contact/contact';
 import { I18nService } from '../i18n/i18n.service';
 import { TranslatePipe } from '../i18n/translate.pipe';
+import { CursorComponent } from '../components/cursor/cursor.component';
 
 @Component({
   selector: 'app-layout',
@@ -30,6 +31,7 @@ import { TranslatePipe } from '../i18n/translate.pipe';
     Projects,
     Experience,
     Contact,
+    CursorComponent,
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
@@ -53,6 +55,15 @@ export class Layout implements AfterViewInit, OnDestroy {
     const pct = max > 0 ? Math.max(0, Math.min(100, (y / max) * 100)) : 0;
     document.documentElement.style.setProperty('--scroll-progress', pct + '%');
     this.showBackToTop.set(y > 600);
+    
+    const toolbar = document.querySelector('.app-toolbar');
+    if (toolbar) {
+      if (y > 20) {
+        toolbar.classList.add('scrolled');
+      } else {
+        toolbar.classList.remove('scrolled');
+      }
+    }
   };
 
   constructor(private i18n: I18nService) {

@@ -9,6 +9,7 @@
   <div class="accent-bar"></div>
 
   <div class="skills-groups reveal-up reveal-stagger">
+    <!-- FRONTEND -->
     <div class="skills-group skills-group--wide">
       <div class="skills-group-head">
         <div class="skills-group-icon skills-group-icon--frontend">
@@ -20,51 +21,25 @@
         </div>
       </div>
       <div class="skills-tags" [attr.aria-label]="'skills.tags.frontend' | t">
-        <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-angular" aria-hidden="true">code</mat-icon><span>Angular</span></div>
-        <div class="skill-pill skill-pill--primary"><mat-icon class="skill-icon icon-ts" aria-hidden="true">data_object</mat-icon><span>TypeScript</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-rx" aria-hidden="true">autorenew</mat-icon><span>RxJS</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-html" aria-hidden="true">language</mat-icon><span>HTML</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-scss" aria-hidden="true">palette</mat-icon><span>CSS/SCSS</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-responsive" aria-hidden="true">devices</mat-icon><span>Responsive</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-a11y" aria-hidden="true">accessible</mat-icon><span>a11y</span></div>
+        <div class="skill-pill skill-pill--primary">
+          <mat-icon class="skill-icon icon-angular" aria-hidden="true">code</mat-icon>
+          <span>Angular</span>
+          <span class="skill-level">Principal</span>
+        </div>
+        <div class="skill-pill skill-pill--primary">
+          <mat-icon class="skill-icon icon-ts" aria-hidden="true">terminal</mat-icon>
+          <span>TypeScript</span>
+          <span class="skill-level">Principal</span>
+        </div>
+        <div class="skill-pill"><span>HTML5</span></div>
+        <div class="skill-pill"><span>CSS3</span></div>
+        <div class="skill-pill"><span>Bootstrap</span></div>
+        <div class="skill-pill"><span>Angular Material</span></div>
       </div>
     </div>
 
+    <!-- BACKEND -->
     <div class="skills-group">
-      <div class="skills-group-head">
-        <div class="skills-group-icon skills-group-icon--quality">
-          <mat-icon aria-hidden="true">verified</mat-icon>
-        </div>
-        <div class="skills-group-title">
-          <div class="skills-title">{{ 'skills.group.quality.title' | t }}</div>
-          <div class="skills-meta">{{ 'skills.group.quality.meta' | t }}</div>
-        </div>
-      </div>
-      <div class="skills-tags" [attr.aria-label]="'skills.tags.quality' | t">
-        <div class="skill-pill"><mat-icon class="skill-icon icon-testing" aria-hidden="true">bug_report</mat-icon><span>Testing</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">rule</mat-icon><span>Linting</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">speed</mat-icon><span>Performance</span></div>
-      </div>
-    </div>
-
-    <div class="skills-group">
-      <div class="skills-group-head">
-        <div class="skills-group-icon skills-group-icon--tools">
-          <mat-icon aria-hidden="true">construction</mat-icon>
-        </div>
-        <div class="skills-group-title">
-          <div class="skills-title">{{ 'skills.group.tools.title' | t }}</div>
-          <div class="skills-meta">{{ 'skills.group.tools.meta' | t }}</div>
-        </div>
-      </div>
-      <div class="skills-tags" [attr.aria-label]="'skills.tags.tools' | t">
-        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">hub</mat-icon><span>Git</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">terminal</mat-icon><span>CLI</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">cloud</mat-icon><span>Deploy</span></div>
-      </div>
-    </div>
-
-    <div class="skills-group skills-group--wide">
       <div class="skills-group-head">
         <div class="skills-group-icon skills-group-icon--backend">
           <mat-icon aria-hidden="true">dns</mat-icon>
@@ -75,15 +50,56 @@
         </div>
       </div>
       <div class="skills-tags" [attr.aria-label]="'skills.tags.backend' | t">
-        <div class="skill-pill"><mat-icon class="skill-icon icon-csharp" aria-hidden="true">code</mat-icon><span>C#</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-dotnet" aria-hidden="true">layers</mat-icon><span>.NET</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-node" aria-hidden="true">developer_mode</mat-icon><span>Node.js</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-nest" aria-hidden="true">account_tree</mat-icon><span>NestJS</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-sql" aria-hidden="true">database</mat-icon><span>SQL Server</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-postgres" aria-hidden="true">database</mat-icon><span>PostgreSQL</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-mongo" aria-hidden="true">storage</mat-icon><span>MongoDB</span></div>
+        <div class="skill-pill skill-pill--primary">
+          <mat-icon class="skill-icon icon-node" aria-hidden="true">memory</mat-icon>
+          <span>Node.js</span>
+          <span class="skill-level">Avanzado</span>
+        </div>
+        <div class="skill-pill"><span>Express</span></div>
+        <div class="skill-pill"><span>REST API</span></div>
+        <div class="skill-pill"><span>JWT</span></div>
+      </div>
+    </div>
+
+    <!-- BASE DE DATOS -->
+    <div class="skills-group">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--database">
+          <mat-icon aria-hidden="true">storage</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">{{ 'skills.group.database.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.database.meta' | t }}</div>
+        </div>
+      </div>
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.database' | t">
+        <div class="skill-pill skill-pill--primary">
+          <mat-icon class="skill-icon icon-sql" aria-hidden="true">storage</mat-icon>
+          <span>SQL Server</span>
+          <span class="skill-level">Avanzado</span>
+        </div>
+        <div class="skill-pill"><span>T-SQL</span></div>
+        <div class="skill-pill"><span>Stored Procedures</span></div>
+      </div>
+    </div>
+
+    <!-- HERRAMIENTAS -->
+    <div class="skills-group skills-group--wide">
+      <div class="skills-group-head">
+        <div class="skills-group-icon skills-group-icon--tools">
+          <mat-icon aria-hidden="true">build</mat-icon>
+        </div>
+        <div class="skills-group-title">
+          <div class="skills-title">{{ 'skills.group.tools.title' | t }}</div>
+          <div class="skills-meta">{{ 'skills.group.tools.meta' | t }}</div>
+        </div>
+      </div>
+      <div class="skills-tags" [attr.aria-label]="'skills.tags.tools' | t">
+        <div class="skill-pill"><mat-icon class="skill-icon" aria-hidden="true">share</mat-icon><span>Git</span></div>
+        <div class="skill-pill"><span>GitHub</span></div>
+        <div class="skill-pill"><span>VS Code</span></div>
+        <div class="skill-pill"><span>Postman</span></div>
         <div class="skill-pill"><mat-icon class="skill-icon icon-docker" aria-hidden="true">layers</mat-icon><span>Docker</span></div>
-        <div class="skill-pill"><mat-icon class="skill-icon icon-api" aria-hidden="true">api</mat-icon><span>REST APIs</span></div>
       </div>
     </div>
   </div>

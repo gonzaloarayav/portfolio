@@ -1,36 +1,32 @@
 <div class="section-content section--contact">
-  <div class="section-header reveal-left">
-    <mat-icon class="icon-section icon-contact">mail</mat-icon>
-    <div>
-      <h2 class="section-title">{{ 'contact.title' | t }}</h2>
-      <p class="section-subtitle">{{ 'contact.subtitle' | t }}</p>
-    </div>
-  </div>
-  <div class="accent-bar"></div>
-  <p class="lead reveal-up">{{ 'contact.lead' | t }}</p>
+  <div class="contact-cta-box reveal-up">
+    <div class="contact-cta-content">
+      <mat-icon class="icon-contact-large">rocket_launch</mat-icon>
+      <h2 class="contact-cta-title">{{ 'contact.cta.project' | t }}</h2>
+      <p class="contact-cta-lead">{{ 'contact.lead' | t }}</p>
+      
+      <div class="contact-links">
+        <a class="contact-link-item" href="mailto:arayagonzalodev@gmail.com">
+          <mat-icon>alternate_email</mat-icon> arayagonzalodev@gmail.com
+        </a>
+        <a class="contact-link-item" href="https://cl.linkedin.com/in/gonzalo-araya-videla-b83639205" target="_blank" rel="noreferrer noopener">
+          <mat-icon>link</mat-icon> LinkedIn
+        </a>
+        <a class="contact-link-item" href="https://github.com/gonzaloarayav" target="_blank" rel="noreferrer noopener">
+          <mat-icon>code</mat-icon> GitHub
+        </a>
+      </div>
 
-  <div class="contact-card reveal-up">
-    <div class="contact-row">
-      <mat-icon class="contact-icon" aria-hidden="true">alternate_email</mat-icon>
-      <a class="contact-link" href="mailto:arayagonzalodev@gmail.com">arayagonzalodev@gmail.com</a>
-    </div>
-    <div class="contact-row">
-      <mat-icon class="contact-icon" aria-hidden="true">link</mat-icon>
-      <a class="contact-link" href="https://cl.linkedin.com/in/gonzalo-araya-videla-b83639205" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-    </div>
-    <div class="contact-row">
-      <mat-icon class="contact-icon" aria-hidden="true">code</mat-icon>
-      <a class="contact-link" href="https://github.com/gonzaloarayav" target="_blank" rel="noreferrer noopener">GitHub</a>
-    </div>
-    <div class="cta-group">
-      <a mat-flat-button color="primary" href="mailto:arayagonzalodev@gmail.com">
-        <mat-icon class="icon-cta">mail</mat-icon>
-        {{ 'contact.cta.sendEmail' | t }}
-      </a>
-      <a mat-stroked-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
-        <mat-icon class="icon-cta">download</mat-icon>
-        {{ 'contact.cta.downloadResume' | t }}
-      </a>
+      <div class="cta-group">
+        <a mat-flat-button color="primary" href="mailto:arayagonzalodev@gmail.com" class="cta-primary-large">
+          <mat-icon class="icon-cta">mail</mat-icon>
+          {{ 'contact.cta.sendEmail' | t }}
+        </a>
+        <a mat-stroked-button color="primary" href="#" target="_blank" rel="noreferrer noopener" class="cta-secondary-large">
+          <mat-icon class="icon-cta">download</mat-icon>
+          {{ 'contact.cta.downloadResume' | t }}
+        </a>
+      </div>
     </div>
   </div>
 </div>

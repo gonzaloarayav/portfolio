@@ -1,33 +1,91 @@
 <div class="hero section--home">
-  <div class="section-header reveal-left">
-    <mat-icon class="icon-section icon-home">person</mat-icon>
-    <div>
-      <h2 class="section-title">
-        {{ 'home.titlePrefix' | t }} <span #heroName class="hero-name">Gonzalo Araya</span>
-      </h2>
-      <p class="section-subtitle">{{ 'home.subtitle' | t }}</p>
+  <div class="hero-content">
+    <div class="hero-badge">FULL STACK DEVELOPER</div>
+    <div class="section-header">
+      <mat-icon class="icon-section icon-home">terminal</mat-icon>
+      <div>
+        <h2 class="section-title">
+          {{ 'home.titlePrefix' | t }} <span #heroName class="hero-name">Gonzalo Araya</span>
+        </h2>
+        <p class="section-subtitle">{{ 'home.subtitle' | t }}</p>
+      </div>
     </div>
-  </div>
-  <div class="accent-bar"></div>
-  <p class="lead reveal-up">
-    {{ 'home.lead' | t }}
-  </p>
-  <div class="hero-highlights reveal-up">
-    <div class="highlight">
-      <mat-icon aria-hidden="true">bolt</mat-icon>
-      <span>{{ 'home.highlight.performance' | t }}</span>
+    
+    <div class="accent-bar"></div>
+    
+    <p class="lead">
+      {{ 'home.lead' | t }}
+    </p>
+
+    <div class="cta-group">
+      <a mat-flat-button color="primary" href="#proyectos">
+        <mat-icon>work</mat-icon>
+        {{ 'home.actions.projects' | t }}
+      </a>
+      <a mat-stroked-button href="#contacto">
+        <mat-icon>mail</mat-icon>
+        {{ 'home.actions.contact' | t }}
+      </a>
+      <a mat-stroked-button href="#" target="_blank" class="cta-secondary">
+        <mat-icon>download</mat-icon>
+        {{ 'home.actions.resume' | t }}
+      </a>
     </div>
-    <div class="highlight">
-      <mat-icon aria-hidden="true">verified</mat-icon>
-      <span>{{ 'home.highlight.bestPractices' | t }}</span>
-    </div>
-    <div class="highlight">
-      <mat-icon aria-hidden="true">accessibility_new</mat-icon>
-      <span>{{ 'home.highlight.accessibility' | t }}</span>
+    
+    <div class="hero-tech-row">
+      <div class="tech-badge"><mat-icon>code</mat-icon> Angular</div>
+      <div class="tech-badge"><mat-icon>terminal</mat-icon> TypeScript</div>
+      <div class="tech-badge"><mat-icon>memory</mat-icon> Node.js</div>
+      <div class="tech-badge"><mat-icon>storage</mat-icon> SQL Server</div>
+      <div class="tech-badge"><mat-icon>share</mat-icon> Git</div>
     </div>
   </div>
 
-  <div class="scroll-hint reveal-fade" aria-hidden="true">
+  <div class="hero-visual">
+    <div class="dev-workspace glass-panel">
+      <div class="workspace-header">
+        <div class="mac-buttons">
+          <span class="btn-close"></span>
+          <span class="btn-min"></span>
+          <span class="btn-max"></span>
+        </div>
+        <div class="workspace-title">gonzalo-araya — bash</div>
+      </div>
+      <div class="workspace-body">
+        <div class="code-line"><span class="keyword">const</span> developer = {{ '{' }}</div>
+        <div class="code-line indent">name: <span class="string">'Gonzalo Araya'</span>,</div>
+        <div class="code-line indent">role: <span class="string">'Full Stack Developer'</span>,</div>
+        <div class="code-line indent">frontend: [<span class="string">'Angular'</span>, <span class="string">'TypeScript'</span>],</div>
+        <div class="code-line indent">backend: [<span class="string">'Node.js'</span>, <span class="string">'Express'</span>],</div>
+        <div class="code-line indent">database: [<span class="string">'SQL Server'</span>]</div>
+        <div class="code-line">{{ '}' }};</div>
+        <br>
+        <div class="code-line"><span class="prompt">➜</span> <span class="command">developer.init()</span><span class="cursor">_</span></div>
+      </div>
+    </div>
+
+    <div class="floating-badge badge-1"><mat-icon>code</mat-icon> Angular</div>
+    <div class="floating-badge badge-2"><mat-icon>terminal</mat-icon> TypeScript</div>
+    <div class="floating-badge badge-3"><mat-icon>memory</mat-icon> Node.js</div>
+    <div class="floating-badge badge-4"><mat-icon>storage</mat-icon> SQL Server</div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
     <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
+</div>
+
+<div class="hero-stats">
+  <div class="stat-item">
+    <div class="stat-value">{{ 'home.stats.projects.value' | t }}</div>
+    <div class="stat-label">{{ 'home.stats.projects.label' | t }}</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-value">{{ 'home.stats.tech.value' | t }}</div>
+    <div class="stat-label">{{ 'home.stats.tech.label' | t }}</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-value">{{ 'home.stats.years.value' | t }}</div>
+    <div class="stat-label">{{ 'home.stats.years.label' | t }}</div>
   </div>
 </div>

@@ -9,95 +9,104 @@
   <div class="accent-bar"></div>
 
   <div class="projects-grid reveal-up reveal-stagger">
-    <div class="project-card reveal-up">
-      <div class="project-icon">
-        <mat-icon class="icon-dashboard">dashboard</mat-icon>
+    <!-- Proyecto Destacado -->
+    <div class="project-card project-card--featured reveal-up">
+      <div class="project-visual">
+        <div class="visual-placeholder visual-angular">
+          <mat-icon>dashboard</mat-icon>
+          <span>ArayaDev Portfolio</span>
+        </div>
+        <div class="project-overlay">
+          <a mat-flat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>open_in_new</mat-icon> {{ 'projects.actions.demo' | t }}
+          </a>
+        </div>
       </div>
-      <div class="project-head">
-        <div>
+      <div class="project-content">
+        <div class="project-head">
+          <span class="project-badge">Featured</span>
           <h3>UI Portfolio</h3>
-          <p class="muted">{{ 'projects.p1.stack' | t }}</p>
         </div>
-      </div>
-      <p>{{ 'projects.p1.desc' | t }}</p>
-      <div class="project-actions">
-        <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>open_in_new</mat-icon>
-          {{ 'projects.actions.demo' | t }}
-        </a>
-        <a mat-button href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>code</mat-icon>
-          {{ 'projects.actions.code' | t }}
-        </a>
+        <p class="muted">{{ 'projects.p1.stack' | t }}</p>
+        <p>{{ 'projects.p1.desc' | t }}</p>
+        <div class="project-actions">
+          <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>open_in_new</mat-icon> {{ 'projects.actions.demo' | t }}
+          </a>
+          <a mat-button href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>code</mat-icon> {{ 'projects.actions.code' | t }}
+          </a>
+        </div>
       </div>
     </div>
 
+    <!-- Otros Proyectos -->
     <div class="project-card reveal-up">
-      <div class="project-icon">
-        <mat-icon class="icon-insights">insights</mat-icon>
+      <div class="project-visual">
+        <div class="visual-placeholder visual-metrics">
+          <mat-icon>trending_up</mat-icon>
+        </div>
       </div>
-      <div class="project-head">
-        <div>
+      <div class="project-content">
+        <div class="project-head">
           <h3>{{ 'projects.p2.title' | t }}</h3>
-          <p class="muted">{{ 'projects.p2.stack' | t }}</p>
         </div>
-      </div>
-      <p>{{ 'projects.p2.desc' | t }}</p>
-      <div class="project-actions">
-        <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>open_in_new</mat-icon>
-          {{ 'projects.actions.demo' | t }}
-        </a>
-        <a mat-button href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>code</mat-icon>
-          {{ 'projects.actions.code' | t }}
-        </a>
+        <p class="muted">{{ 'projects.p2.stack' | t }}</p>
+        <p>{{ 'projects.p2.desc' | t }}</p>
+        <div class="project-actions">
+          <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>open_in_new</mat-icon> {{ 'projects.actions.demo' | t }}
+          </a>
+          <a mat-button href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>code</mat-icon> {{ 'projects.actions.code' | t }}
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="project-card reveal-up">
-      <div class="project-icon">
-        <mat-icon>shopping_bag</mat-icon>
+      <div class="project-visual">
+        <div class="visual-placeholder visual-ecommerce">
+          <mat-icon>shopping_cart</mat-icon>
+        </div>
       </div>
-      <div class="project-head">
-        <div>
+      <div class="project-content">
+        <div class="project-head">
           <h3>E-commerce UI</h3>
-          <p class="muted">{{ 'projects.p3.stack' | t }}</p>
         </div>
-      </div>
-      <p>{{ 'projects.p3.desc' | t }}</p>
-      <div class="project-actions">
-        <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>open_in_new</mat-icon>
-          {{ 'projects.actions.demo' | t }}
-        </a>
-        <a mat-button href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>code</mat-icon>
-          {{ 'projects.actions.code' | t }}
-        </a>
+        <p class="muted">{{ 'projects.p3.stack' | t }}</p>
+        <p>{{ 'projects.p3.desc' | t }}</p>
+        <div class="project-actions">
+          <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>open_in_new</mat-icon> {{ 'projects.actions.demo' | t }}
+          </a>
+          <a mat-button href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>code</mat-icon> {{ 'projects.actions.code' | t }}
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="project-card reveal-up">
-      <div class="project-icon">
-        <mat-icon>checklist</mat-icon>
-      </div>
-      <div class="project-head">
-        <div>
-          <h3>{{ 'projects.p4.title' | t }}</h3>
-          <p class="muted">{{ 'projects.p4.stack' | t }}</p>
+      <div class="project-visual">
+        <div class="visual-placeholder visual-task">
+          <mat-icon>list_alt</mat-icon>
         </div>
       </div>
-      <p>{{ 'projects.p4.desc' | t }}</p>
-      <div class="project-actions">
-        <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>open_in_new</mat-icon>
-          {{ 'projects.actions.demo' | t }}
-        </a>
-        <a mat-button href="#" target="_blank" rel="noreferrer noopener">
-          <mat-icon>code</mat-icon>
-          {{ 'projects.actions.code' | t }}
-        </a>
+      <div class="project-content">
+        <div class="project-head">
+          <h3>{{ 'projects.p4.title' | t }}</h3>
+        </div>
+        <p class="muted">{{ 'projects.p4.stack' | t }}</p>
+        <p>{{ 'projects.p4.desc' | t }}</p>
+        <div class="project-actions">
+          <a mat-button color="primary" href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>open_in_new</mat-icon> {{ 'projects.actions.demo' | t }}
+          </a>
+          <a mat-button href="#" target="_blank" rel="noreferrer noopener">
+            <mat-icon>code</mat-icon> {{ 'projects.actions.code' | t }}
+          </a>
+        </div>
       </div>
     </div>
   </div>
