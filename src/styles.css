@@ -122,6 +122,224 @@ html.dark-theme {
   --mat-sys-on-surface-variant: var(--color-text-muted);
 }
 
+/* Windows 95 Retro Theme */
+html.retro-theme {
+  color-scheme: light;
+  --color-bg: #008080; /* Classic Teal */
+  --color-surface: #c0c0c0; /* Classic Gray */
+  --color-surface-hover: #d4d0c8;
+  --color-surface-elevated: #c0c0c0;
+  
+  --color-primary: #000080; /* Classic Navy Blue */
+  --color-primary-glow: rgba(0, 0, 128, 0.15);
+  --color-secondary: #800080;
+  --color-secondary-glow: rgba(128, 0, 128, 0.15);
+  
+  --color-text: #000000;
+  --color-text-muted: #222222;
+  
+  --color-border: #dfdfdf;
+  --color-border-hover: #ffffff;
+  
+  /* Disable radii for blocky 90s look */
+  --radius-xl: 0px;
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+
+  /* Fonts to MS Sans Serif */
+  --font-sans: 'MS Sans Serif', 'Tahoma', sans-serif;
+  --font-display: 'MS Sans Serif', 'Tahoma', sans-serif;
+
+  /* Outset border effect for Windows 95 feel */
+  --shadow-sm: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  --shadow-md: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  --shadow-lg: inset -2px -2px #0a0a0a, inset 2px 2px #fff, inset -3px -3px #808080, inset 3px 3px #dfdfdf, 2px 2px 5px rgba(0,0,0,0.5);
+  
+  --bg-pattern: none;
+  
+  /* Angular Material Overrides */
+  --mat-sys-primary: var(--color-primary);
+  --mat-sys-background: var(--color-bg);
+  --mat-sys-surface: var(--color-surface-elevated);
+  --mat-sys-on-surface: var(--color-text);
+  --mat-sys-on-surface-variant: var(--color-text-muted);
+}
+
+/* Global overrides for retro theme */
+html.retro-theme body {
+  background-image: none;
+  background-color: var(--color-bg);
+}
+
+/* Authentic Windows 95 UI Utilities */
+html.retro-theme .win95-window {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+}
+
+html.retro-theme .win95-titlebar {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 2px 4px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  cursor: default;
+}
+
+html.retro-theme .win95-titlebar.inactive {
+  background: #808080;
+}
+
+html.retro-theme .win95-titlebar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+html.retro-theme .win95-btn {
+  background: #c0c0c0;
+  border: none;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  color: #000;
+  padding: 2px 8px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html.retro-theme .win95-btn:active, html.retro-theme .win95-btn.active {
+  box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf;
+  padding-top: 3px;
+  padding-left: 9px;
+  padding-bottom: 1px;
+  padding-right: 7px;
+}
+
+html.retro-theme .win95-btn-icon {
+  padding: 0;
+  width: 16px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+html.retro-theme .win95-btn-icon:active, html.retro-theme .win95-btn-icon.active {
+  padding-top: 1px;
+  padding-left: 1px;
+}
+
+html.retro-theme .win95-tab {
+  background: #c0c0c0;
+  border: none;
+  box-shadow: inset -1px 0px #0a0a0a, inset 1px 1px #fff, inset -2px 0px #808080, inset 2px 2px #dfdfdf;
+  color: #000;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border-radius: 3px 3px 0 0;
+  margin-top: 2px;
+  z-index: 1;
+  position: relative;
+}
+
+html.retro-theme .win95-tab.active {
+  margin-top: 0;
+  padding-bottom: 6px;
+  background: #c0c0c0;
+  box-shadow: inset -1px 0px #0a0a0a, inset 1px 1px #fff, inset -2px 0px #808080, inset 2px 2px #dfdfdf;
+  z-index: 3;
+}
+
+html.retro-theme .win95-inset {
+  background: #fff;
+  box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf;
+  border: 1px solid #000;
+  padding: 4px;
+}
+
+html.retro-theme .win95-outset {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  border: 1px solid #000;
+  padding: 4px;
+}
+
+html.retro-theme .win95-desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  text-align: center;
+  cursor: pointer;
+  gap: 4px;
+  padding: 4px;
+}
+
+html.retro-theme .win95-desktop-icon img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+html.retro-theme .win95-desktop-icon .label {
+  color: #fff;
+  font-size: 11px;
+  text-shadow: 1px 1px 0 #000;
+}
+
+html.retro-theme .win95-desktop-icon:hover .label, html.retro-theme .win95-desktop-icon:active .label {
+  background: #000080;
+  text-shadow: none;
+}
+
+html.retro-theme .win95-taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: #c0c0c0;
+  box-shadow: inset 0px 1px #fff;
+  border-top: 1px solid #dfdfdf;
+  display: flex;
+  padding: 2px;
+  gap: 4px;
+  z-index: 10000;
+}
+
+html.retro-theme .win95-start-btn {
+  font-weight: bold;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+html.retro-theme .win95-start-btn img {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+html.retro-theme .win95-taskbar-clock {
+  margin-left: auto;
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #fff, inset 2px 2px #0a0a0a, inset -2px -2px #dfdfdf;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
 html.full-width {
   --page-max-width: 100%;
 }
@@ -502,34 +720,4 @@ button:focus-visible {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
-}
-
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 1px solid rgba(59, 130, 246, 0.6);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-  mix-blend-mode: difference;
-}
-
-.custom-cursor.cursor-hover {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.8);
-}
-
-/* Disable on touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .custom-cursor {
-    display: none;
-  }
 }

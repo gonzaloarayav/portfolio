@@ -13,7 +13,8 @@ import { Experience } from '../../pages/experience/experience';
 import { Contact } from '../../pages/contact/contact';
 import { I18nService } from '../i18n/i18n.service';
 import { TranslatePipe } from '../i18n/translate.pipe';
-import { CursorComponent } from '../components/cursor/cursor.component';
+import { ThemeService } from '../services/theme.service';
+import { RetroDesktopComponent } from '../components/retro-desktop/retro-desktop';
 
 @Component({
   selector: 'app-layout',
@@ -31,14 +32,14 @@ import { CursorComponent } from '../components/cursor/cursor.component';
     Projects,
     Experience,
     Contact,
-    CursorComponent,
+    RetroDesktopComponent,
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
 export class Layout implements AfterViewInit, OnDestroy {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-  isDarkTheme = signal(true);
+  theme: ThemeService['theme'];
   isFullWidth = signal(false);
   currentSection = signal('inicio');
   showBackToTop = signal(false);
@@ -46,7 +47,6 @@ export class Layout implements AfterViewInit, OnDestroy {
   private io?: IntersectionObserver;
   private mo?: MutationObserver;
   private observed = new WeakSet<Element>();
-  private readonly themeStorageKey = 'theme';
   private readonly layoutWidthStorageKey = 'layoutWidth';
   private readonly observeSelector = ['.section', '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-fade'].join(',');
   private onScroll = () => {
@@ -66,16 +66,9 @@ export class Layout implements AfterViewInit, OnDestroy {
     }
   };
 
-  constructor(private i18n: I18nService) {
+  constructor(private i18n: I18nService, private themeService: ThemeService) {
     this.lang = this.i18n.lang;
-    const stored = this.safeGetTheme();
-    const prefersDark =
-      typeof window !== 'undefined' &&
-      typeof window.matchMedia !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const initialIsDark = stored ? stored === 'dark' : prefersDark;
-    this.applyTheme(initialIsDark);
+    this.theme = this.themeService.theme;
 
     const storedLayoutWidth = this.safeGetLayoutWidth();
     this.applyLayoutWidth(storedLayoutWidth === 'full');
@@ -119,8 +112,12 @@ export class Layout implements AfterViewInit, OnDestroy {
     this.io?.disconnect();
   }
 
-  toggleTheme() {
-    this.applyTheme(!this.isDarkTheme());
+  cycleTheme() {
+    this.themeService.cycleTheme();
+  }
+
+  setRetroTheme() {
+    this.themeService.setTheme('retro');
   }
 
   toggleLayoutWidth() {
@@ -129,35 +126,6 @@ export class Layout implements AfterViewInit, OnDestroy {
 
   currentYear() {
     return new Date().getFullYear();
-  }
-
-  private applyTheme(isDark: boolean) {
-    this.isDarkTheme.set(isDark);
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add('dark-theme');
-      root.classList.remove('light-theme');
-    } else {
-      root.classList.add('light-theme');
-      root.classList.remove('dark-theme');
-    }
-    this.safeSetTheme(isDark ? 'dark' : 'light');
-  }
-
-  private safeGetTheme() {
-    try {
-      const raw = localStorage.getItem(this.themeStorageKey);
-      return raw === 'dark' || raw === 'light' ? raw : null;
-    } catch {
-      return null;
-    }
-  }
-
-  private safeSetTheme(theme: 'dark' | 'light') {
-    try {
-      localStorage.setItem(this.themeStorageKey, theme);
-    } catch {
-    }
   }
 
   private applyLayoutWidth(isFullWidth: boolean) {

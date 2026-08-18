@@ -1,0 +1,124 @@
+<div class="retro-desktop-container">
+  <!-- Desktop Icons -->
+  <div class="desktop-icons">
+    <div class="win95-desktop-icon" (dblclick)="openWindow('welcome')">
+      <img [src]="icons.computer" alt="" />
+      <span class="label">My Computer</span>
+    </div>
+    <div class="win95-desktop-icon" (dblclick)="openWindow('projects')">
+      <img [src]="icons.folder" alt="" />
+      <span class="label">Projects</span>
+    </div>
+    <div class="win95-desktop-icon" (dblclick)="openWindow('resume')">
+      <img [src]="icons.file" alt="" />
+      <span class="label">Curriculum.exe</span>
+    </div>
+    <div class="win95-desktop-icon" (dblclick)="openWindow('skills')">
+      <img [src]="icons.computer" alt="" />
+      <span class="label">Installed Programs</span>
+    </div>
+    <div class="win95-desktop-icon" (dblclick)="openWindow('experience')">
+      <img [src]="icons.folder" alt="" />
+      <span class="label">Experience</span>
+    </div>
+    <div class="win95-desktop-icon" (dblclick)="openWindow('contact')">
+      <img [src]="icons.file" alt="" />
+      <span class="label">Contact</span>
+    </div>
+    <div class="win95-desktop-icon">
+      <img [src]="icons.trash" alt="" />
+      <span class="label">Recycle Bin</span>
+    </div>
+  </div>
+
+  <!-- Windows -->
+  @for (w of windows(); track w.id) {
+    @if (w.isOpen) {
+      <app-retro-window
+        [title]="w.title"
+        [icon]="w.icon"
+        [isActive]="activeWindowId === w.id"
+        [isHidden]="w.isMinimized"
+        [zIndex]="w.zIndex"
+        (close)="closeWindow(w.id)"
+        (minimize)="minimizeWindow(w.id)"
+        (focused)="focusWindow(w.id)"
+      >
+        @if (w.id === 'welcome') {
+          <app-home></app-home>
+        }
+        @if (w.id === 'skills') {
+          <app-skills></app-skills>
+        }
+        @if (w.id === 'projects') {
+          <app-projects></app-projects>
+        }
+        @if (w.id === 'resume') {
+          <app-resume></app-resume>
+        }
+        @if (w.id === 'experience') {
+          <app-experience></app-experience>
+        }
+        @if (w.id === 'contact') {
+          <app-contact></app-contact>
+        }
+      </app-retro-window>
+    }
+  }
+
+  <!-- Taskbar -->
+  <div class="win95-taskbar">
+    <button class="win95-btn win95-start-btn" [class.active]="startMenuOpen()" (click)="toggleStartMenu()">
+      <img [src]="icons.computer" alt="" />
+      Start
+    </button>
+
+    <div class="taskbar-separator"></div>
+
+    <div class="taskbar-windows">
+      @for (w of windows(); track w.id) {
+        @if (w.isOpen) {
+          <button
+            class="win95-btn taskbar-window-btn"
+            [class.active]="activeWindowId === w.id"
+            (click)="focusWindow(w.id)"
+          >
+            <img [src]="w.icon" alt="" class="taskbar-icon" />
+            <span class="taskbar-title">{{ w.title }}</span>
+          </button>
+        }
+      }
+    </div>
+
+    <div class="win95-taskbar-clock" style="display: flex; gap: 8px; align-items: center;">
+      <span (click)="toggleLang()" style="cursor: pointer; text-decoration: underline; font-weight: bold; font-size: 11px;">
+        {{ lang() === 'es' ? 'EN' : 'ES' }}
+      </span>
+      <span>{{ time() }}</span>
+    </div>
+  </div>
+
+  <!-- Start Menu -->
+  @if (startMenuOpen()) {
+    <div class="win95-start-menu">
+      <div class="start-menu-sidebar">
+        <span>ArayaDev</span>
+      </div>
+      <div class="start-menu-items">
+        <button class="start-menu-item" (click)="openWindow('projects')">
+          <img [src]="icons.folder" alt="" />
+          Programs
+        </button>
+        <button class="start-menu-item" (click)="openWindow('resume')">
+          <img [src]="icons.file" alt="" />
+          Documents
+        </button>
+        <div class="start-menu-separator"></div>
+        <button class="start-menu-item" (click)="shutdown()">
+          <img [src]="icons.computer" alt="" />
+          Exit retro mode
+        </button>
+      </div>
+    </div>
+  }
+</div>

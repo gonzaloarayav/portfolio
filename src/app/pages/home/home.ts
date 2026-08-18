@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '../../shared/i18n/translate.pipe';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ThemeService } from '../../shared/services/theme.service';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +15,7 @@ if (typeof window !== 'undefined') {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, TranslatePipe],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, TranslatePipe, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -28,12 +29,16 @@ export class Home implements AfterViewInit, OnDestroy {
   private isBrowser: boolean;
   private mm?: gsap.MatchMedia;
 
+  theme: ThemeService['theme'];
+
   constructor(
     private zone: NgZone,
     private elRef: ElementRef,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object,
+    private themeService: ThemeService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.theme = this.themeService.theme;
   }
 
   ngAfterViewInit() {

@@ -1,3 +1,6 @@
+@if (theme() === 'retro') {
+  <app-retro-desktop></app-retro-desktop>
+} @else {
 <mat-sidenav-container class="layout-container">
   <mat-sidenav #sidenav mode="over" class="app-sidenav">
     <mat-nav-list>
@@ -77,10 +80,18 @@
         <button
           mat-icon-button
           class="theme-toggle"
-          (click)="toggleTheme()"
-          [attr.aria-label]="(isDarkTheme() ? 'toolbar.theme.light' : 'toolbar.theme.dark') | t"
+          (click)="cycleTheme()"
+          [attr.aria-label]="(theme() === 'dark' ? 'toolbar.theme.light' : 'toolbar.theme.dark') | t"
         >
-          <mat-icon aria-hidden="true">{{ isDarkTheme() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+          <mat-icon aria-hidden="true">{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="retro-toggle"
+          (click)="setRetroTheme()"
+          [attr.aria-label]="'Windows 95'"
+        >
+          <mat-icon aria-hidden="true">desktop_windows</mat-icon>
         </button>
         <button
           mat-button
@@ -139,5 +150,4 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-<app-cursor></app-cursor>
+}

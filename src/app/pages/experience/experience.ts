@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, Inject, PLATFORM_ID } 
 import { isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '../../shared/i18n/translate.pipe';
+import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../shared/services/theme.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,7 +14,7 @@ if (typeof window !== 'undefined') {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [MatIconModule, TranslatePipe],
+  imports: [MatIconModule, TranslatePipe, CommonModule],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
 })
@@ -20,12 +22,15 @@ export class Experience implements AfterViewInit, OnDestroy {
   private ctx?: gsap.Context;
   private isBrowser: boolean;
   private mm?: gsap.MatchMedia;
+  theme: ThemeService['theme'];
 
   constructor(
     private elRef: ElementRef,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object,
+    private themeService: ThemeService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.theme = this.themeService.theme;
   }
 
   ngAfterViewInit(): void {

@@ -1,0 +1,121 @@
+.retro-desktop-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg);
+  overflow: hidden;
+  position: relative;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+}
+
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - 40px);
+  align-content: flex-start;
+}
+
+.taskbar-separator {
+  width: 2px;
+  background: #dfdfdf;
+  border-right: 1px solid #808080;
+  margin: 2px 4px;
+}
+
+.taskbar-windows {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.taskbar-window-btn {
+  max-width: 150px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskbar-icon {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.taskbar-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win95-start-menu {
+  position: fixed;
+  bottom: 28px;
+  left: 0;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  display: flex;
+  z-index: 10001;
+  min-width: 200px;
+}
+
+.start-menu-sidebar {
+  background: #000080;
+  color: #fff;
+  width: 32px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 8px;
+}
+
+.start-menu-sidebar span {
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 24px;
+}
+
+.start-menu-items {
+  flex: 1;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-menu-item {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.start-menu-item:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.start-menu-item img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+}
+
+.start-menu-separator {
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #dfdfdf;
+  margin: 4px 2px;
+}
